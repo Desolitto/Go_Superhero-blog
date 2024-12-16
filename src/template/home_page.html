@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Articles</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			color: #333;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			max-width: 800px;
+			margin: 20px auto;
+			padding: 20px;
+			background-color: rgb(184, 237, 248);
+			border-radius: 8px;
+			box-shadow: 0 2px 10px rgba(27, 229, 243, 0.1);
+		}
+		h1 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		h2 {
+			color: black;
+			margin-bottom: 10px;
+		}
+		h3 {
+			margin-top: 20px;
+			margin-bottom: 10px;
+			color: black;
+		}
+		p {
+			margin-bottom: 15px;
+		}
+		ul {
+			list-style-type: none;
+			padding-left: 0;
+		}
+		li {
+			background-color: #f9f9f9;
+			border-radius: 5px;
+			padding: 15px;
+			margin-bottom: 10px;
+			box-shadow: 0 1px 5px rgba(27, 229, 243, 0.1);
+		}
+		a {
+			text-decoration: none;
+			color: rgb(0, 26, 255);
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            color: aqua;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .login-button {
+            margin-left: 10px;
+            padding: 8px 12px;
+            background-color: rgb(98, 0, 255); /* Цвет кнопки Логин */
+            border-radius: 5px;
+            color: aqua;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .login-button:hover {
+            background-color: #4376f8; /* Цвет при наведении */
+        }
+        .admin-button {
+            background-color:rgb(98, 0, 255); /* Цвет кнопки Админ */
+        }
+        .admin-button:hover {
+            background-color:#7a73ff; /* Цвет при наведении */
+        }
+        .logout-button {
+            background-color: rgb(25, 0, 255); /* Цвет кнопки Выйти */
+        }
+        .logout-button:hover {
+            background-color: #7a73ff; /* Цвет при наведении */
+        }
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .pagination a {
+            margin-left: 10px;
+            padding: 8px 12px;
+            background-color: rgb(98, 0, 255);
+            border-radius: 5px;
+            color: aqua;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .pagination a:hover {
+            background-color: #7a73ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><img src="/images/amazing_logo.png" alt="Логотип" style="width:100px;"></h1>
+        <h2>Статьи</h2>
+        <ul>
+            {{range .Articles}}
+                <li>
+                    <h3><a href="/article/{{.ID}}">{{.Title}}</a></h3>
+                    <p class="preformatted">{{.Content | safeHTML}}</p>
+                </li>
+            {{end}}
+        </ul>
+		{{ if .IsAdminLoggedIn }}
+		<form method="GET" action="/admin">
+			<button type="submit" value="Админ" class="button admin-button">Админ</button>
+		</form>
+	{{ else }}
+		<form method="GET" action="/login">
+			<button type="submit" value="Логин" class="button login-button">Логин</button>
+		</form>
+	{{ end }}
+        <div class="pagination">
+            {{if .PrevPage}}<a href="/?page={{.PrevPage}}">Предыдущая</a>{{end}}
+            {{if .HasNextPage}}<a href="/?page={{.NextPage}}">Следующая</a>{{end}}
+        </div>    
+    </div>
+</body>
+</html>

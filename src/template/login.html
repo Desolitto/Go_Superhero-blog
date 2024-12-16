@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif; /* Устанавливаем шрифт для всего документа */
+			background-color: #f4f4f4; /* Светлый фон */
+			color: #333; /* Темный текст */
+			margin: 0; /* Убираем отступы */
+			padding: 0; /* Убираем внутренние отступы */
+		}
+		.container {
+			max-width: 400px; /* Максимальная ширина контейнера */
+			margin: 50px auto; /* Центрируем контейнер */
+			padding: 20px; /* Внутренние отступы */
+			background-color: rgb(184, 237, 248);
+			border-radius: 8px; /* Закругленные углы */
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+		}
+		h1 {
+			text-align: center; /* Центрируем заголовок */
+			margin-bottom: 20px; /* Отступ снизу */
+			color: rgb(0, 26, 255);
+		}
+		label {
+			display: block;
+			margin-bottom: 5px; 
+			color: rgb(0, 26, 255);
+		}
+		input[type="text"],
+		input[type="password"] {
+			width: 95%;
+			padding: 10px;
+			margin-bottom: 15px;
+			border-radius: 5px; 
+			border: 1px solid #ccc; 
+		}
+		input[type="submit"] {
+			width: auto; /* Автоматическая ширина кнопки */
+			padding: 10px 20px;
+			background-color: rgb(98, 0, 255);
+			color: aqua;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			display: block; /* Блоковый элемент для центрирования */
+			margin: 20px auto; /* Центрируем кнопку с отступами сверху и снизу */
+		}
+		input[type="submit"]:hover {
+			background-color: #4376f8; /* Цвет кнопки при наведении */
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Вход в систему</h1>
+		<form method="POST">
+			<label>Логин:</label>
+			<input type="text" name="username" required>
+			
+			<label>Пароль:</label>
+			<input type="password" name="password" required>
+			
+			<input type="submit" value="Войти">
+		</form>
+		<div class="back-button-container">
+			<form method="GET" action="/">
+				<input type="button" value="На главную" onclick="window.location.href='/'" style="background-color: rgb(98, 0, 255); color:  aqua; border: none; border-radius: 8px; padding: 10px 20px; width: 100%; cursor: pointer;">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

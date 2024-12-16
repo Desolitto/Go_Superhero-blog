@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+	<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{.Title}}</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif; /* Устанавливаем шрифт для всего документа */
+                background-color: #ffffff; /* Белый фон */
+                color: #1d2060c8; /* Темный текст */
+                margin: 0; /* Убираем отступы */
+                padding: 0; /* Убираем внутренние отступы */
+            }
+            .container {
+                max-width: 800px; /* Максимальная ширина контейнера */
+                margin: 20px auto; /* Центрируем контейнер */
+                padding: 20px; /* Внутренние отступы */
+                background-color: rgb(184, 237, 248);
+                border-radius: 8px; /* Закругленные углы */
+                box-shadow: 0 2px 10px rgba(103, 150, 138, 0.1); /* Тень для эффекта глубины */
+            }
+            h1 {
+                text-align: center; /* Центрируем заголовок */
+                color: rgb(4, 0, 255); /* Цвет заголовка на синий */
+            }
+            h2 {
+                color: rgb(0, 26, 255); /* Цвет подзаголовков на синий для лучшей читабельности */
+            }
+            a {
+                text-decoration: none; /* Убираем подчеркивание у ссылок */
+                color: rgb(81, 0, 255); /* Цвет ссылок */
+            }
+            a:hover {
+                text-decoration: underline; /* Подчеркивание при наведении */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>{{.Title}}</h1>
+            <div>{{.Content | safeHTML}}</div>
+            <a href="/">Назад</a>
+        </div>
+    </body>
+</html>

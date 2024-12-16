@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель администратора</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f8f3;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        textarea {
+            width: 90%; /* Установлено на 80% для обоих элементов */
+            padding: 10px;
+            margin: 10px auto; /* Центрирование с помощью автоматических отступов */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block; /* Делаем элементы блочными для центрирования */
+        }
+
+        textarea {
+            height: 200px; /* Фиксированная высота */
+            resize: none; /* Запрет изменения размера текстовой области */
+        }
+        input[type="submit"] {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px; /* Добавлено отступ сверху */
+            display: block; /* Устанавливаем блочный элемент */
+            width: auto; /* Устанавливаем ширину кнопки по содержимому */
+        }
+        input[type="submit"]:hover {
+            background-color: #444;
+        }
+        div {
+            margin-bottom: 1em; /* Добавляет отступ между абзацами */
+        }
+    </style>
+</head>
+<!-- <body>
+    <h1>Панель администратора</h1>
+    <form method="POST">
+        <label>Заголовок:</label>
+        <input type="text" name="title" required>
+        <label>Содержимое:</label>
+        <textarea name="content" required></textarea>
+
+
+        <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+            <input type="submit" name="publish" value="Опубликовать" style="background-color: green; color: white; border: none; padding: 10px 20px; flex: 1; margin: 10px;">
+            
+            <input type="submit" name="home" value="На главную" style="background-color: blue; color: white; border: none; padding: 10px 20px; flex: 1; margin: 10px;">
+            
+            <input type="submit" name="logout" value="Выйти" style="background-color: red; color: white; border: none; padding: 10px 20px; flex: 1; margin: 10px;">
+        </div>
+    </form>
+</body> -->
+<body>
+    <h1>Панель администратора</h1>
+    <form method="POST">
+        <label>Заголовок:</label>
+        <input type="text" name="title" required>
+        <label>Содержимое:</label>
+        <textarea name="content" required></textarea>
+        
+        <div style="margin-top: 10px; display: flex; justify-content: center; align-items: center; background-color: #fff; padding: 10px;">
+            <input type="submit" value="Опубликовать" style="background-color: rgb(15, 0, 128); color: aqua; border: none; border-radius: 8px; padding: 10px 20px; width: 100%; border-radius: 5px; cursor: pointer;">
+        </div>
+    </form>
+
+    <div style="margin-top: 10px; display: flex; justify-content: center; align-items: center; background-color: #f9f9f9; padding: 10px; border-radius: 5px;">
+        <form method="GET" action="/" style="flex: 1; text-align: center; margin-right: 10px;">
+            <input type="submit" value="На главную" style="background-color: rgb(98, 0, 255); color:aqua; border: none; border-radius: 8px; padding: 10px 20px; width: 100%; cursor: pointer;">
+        </form>
+        
+        <form method="POST" action="/" style="flex: 1; text-align: center;">
+            <input type="hidden" name="logout" value="true">
+            <input type="submit" value="Выйти" style="background-color: rgb(98, 0, 255); color: aqua; border: none; border-radius: 8px; padding: 10px 20px; width: 100%; cursor: pointer;">
+        </form>
+    </div>
+</body>
+
+
+
+
+
+
+
+</html>
